@@ -24,18 +24,18 @@ export class ContactForm extends Component {
     this.props.onSubmit(this.state);
     this.reset();
   };
-  
+
   reset = () => {
     this.setState({
       name: '',
       number: '',
     });
   };
-  
+
   render() {
     return (
       <>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} autoComplete="off">
           <label htmlFor={this.nameInputId}>Name</label>
           <input
             id={this.nameInputId}
