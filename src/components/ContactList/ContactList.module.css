@@ -1,0 +1,19 @@
+.contactList {
+ margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 30px ;
+    max-width: 400px;
+    height: auto;
+    border-radius: 5px;
+    background-color: var(--background-color-component);
+    box-shadow: var(--box-shadow);
+}
+.contactItem {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+    color: var(--second-text-color);
+}

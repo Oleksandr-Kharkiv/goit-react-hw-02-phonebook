@@ -12,8 +12,13 @@ form {
 }
 
 label {
-    display: flex;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: calc(26/20);
+    letter-spacing: .05em;
+    color: var(--accent-color);
 }
+
 input {
     margin: 0;
     padding: 7px 5px 5px;
@@ -24,7 +29,7 @@ input {
     letter-spacing: .05em;
     border-radius: 5px;
     color: var(--second-text-color);
-    background-color: var(--background-color-component);
+    background-color: var(--background-color);
     box-shadow: var(--box-shadow-inset); 
     border-color: inherit; 
 }

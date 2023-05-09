@@ -1,28 +1,42 @@
 import React, { Component } from 'react';
+import { nanoid } from 'nanoid';
+// import PropTypes from 'prop-types';
 import css from './ContactForm.module.css';
 
 export class ContactForm extends Component {
   state = {
-    contacts: [],
     name: '',
-    number: '',
+    tel: '',
   };
 
-  handleInputChange = e => { 
-    const {name, value} = e.currentTarget;
-      console.log(this.state);
-    
-      this.setState ({
-    [name]: value,
-  })};
+  nameInputId = nanoid();
+  telInputId = nanoid();
 
+  handleInputChange = e => {
+    const { name, value } = e.currentTarget;
+    this.setState({
+      [name]: value,
+    });
+  };
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.onSubmit(this.state);
+    this.reset();
+  };
+  reset = () => {
+    this.setState({
+      name: '',
+      tel: '',
+    });
+  };
+  const;
   render() {
     return (
       <>
-        <form>
-        <label htmlFor="cont_name">Name</label>
+        <form onSubmit={this.handleSubmit}>
+          <label htmlFor={this.nameInputId}>Name</label>
           <input
-            id="cont_name"
+            id={this.nameInputId}
             type="text"
             name="name"
             value={this.state.name}
@@ -31,21 +45,22 @@ export class ContactForm extends Component {
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
           />
-        
 
-        <label htmlFor="cont_tel">Number</label>
+          <label htmlFor={this.telInputId}>Number</label>
           <input
-            id="cont_tel"
+            id={this.telInputId}
             type="tel"
-            name="number"
-            value={this.state.number}
+            name="tel"
+            value={this.state.tel}
             onChange={this.handleInputChange}
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
           />
-        
-        <button type='submit' className={css.btn}>Add to contact</button>
+
+          <button type="submit" className={css.btn}>
+            Add to contact
+          </button>
         </form>
       </>
     );

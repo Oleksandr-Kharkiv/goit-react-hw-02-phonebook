@@ -29,6 +29,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   padding: 40px;
   background-color: var(--background-color);
+  background-image: url("https://pixabay.com/get/g767b9f16670e4a3105760d4ed12a2cb128812869ea1e2e087416dd3f0bf056655a9640fdd2c917d3c232f52786bcf8f67468c84feff0cebf5ac7c32d95aed5f5_1920.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 code {
@@ -54,4 +59,17 @@ h1 {
     color: var(--accent-color);
     background-color: var(--background-color-component);
     box-shadow: var(--box-shadow);
+}
+h2 {
+  margin: 20px 0;
+  padding: 20px 5px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 900;
+  line-height: calc(30/26);
+  letter-spacing: .05em;
+  border-radius: 5px;
+  color: var(--accent-color);
+  background-color: var(--background-color-component);
+  box-shadow: var(--box-shadow);
 }
