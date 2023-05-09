@@ -27,7 +27,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 40px;
+  padding: 20px;
   background-color: var(--background-color);
   background-image: url("https://pixabay.com/get/g767b9f16670e4a3105760d4ed12a2cb128812869ea1e2e087416dd3f0bf056655a9640fdd2c917d3c232f52786bcf8f67468c84feff0cebf5ac7c32d95aed5f5_1920.jpg");
   background-size: cover;
@@ -61,7 +61,7 @@ h1 {
     box-shadow: var(--box-shadow);
 }
 h2 {
-  margin: 20px 0;
+  margin: 30px 0 0;
   padding: 20px 5px;
   text-align: center;
   font-size: 26px;

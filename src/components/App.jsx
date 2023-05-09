@@ -2,6 +2,7 @@ import React, { Component} from 'react';
 import { nanoid } from 'nanoid';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
+import { Filter } from './Filter/Filter';
 
 
 export class App extends Component {
@@ -31,8 +32,16 @@ export class App extends Component {
       contacts: prevState.contacts.filter(contact => contact.id !== contactId)
     }))
   }
+  
+  changeFilter = (e) => {
+    this.setState({filter: e.currentTarget.value})
+  }
+
+  
   render() {
-    const {contacts} = this.state;
+    const {filter} = this.state;
+    const normalizedFilter = this.state.filter.toLowerCase();
+    const filtred = this.state.contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter))
     return (
       <div className='wrap'>
         <div>
@@ -40,8 +49,8 @@ export class App extends Component {
           <ContactForm onSubmit={this.formSubmitHandler}/>
 
           <h2>Contacts</h2>
-          {/* <Filter ... /> */}
-          <ContactList contacts={contacts} deleteContact={this.deleteContact}/>
+          <Filter  onChange={this.changeFilter} filter={filter}/>
+          <ContactList contacts={filtred} deleteContact={this.deleteContact}/>
         </div>
       </div>
     );
