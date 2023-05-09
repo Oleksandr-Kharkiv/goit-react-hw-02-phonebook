@@ -6,11 +6,11 @@ import css from './ContactForm.module.css';
 export class ContactForm extends Component {
   state = {
     name: '',
-    tel: '',
+    number: '',
   };
 
   nameInputId = nanoid();
-  telInputId = nanoid();
+  numberInputId = nanoid();
 
   handleInputChange = e => {
     const { name, value } = e.currentTarget;
@@ -18,18 +18,20 @@ export class ContactForm extends Component {
       [name]: value,
     });
   };
+
   handleSubmit = e => {
     e.preventDefault();
     this.props.onSubmit(this.state);
     this.reset();
   };
+  
   reset = () => {
     this.setState({
       name: '',
-      tel: '',
+      number: '',
     });
   };
-  const;
+  
   render() {
     return (
       <>
@@ -46,12 +48,12 @@ export class ContactForm extends Component {
             required
           />
 
-          <label htmlFor={this.telInputId}>Number</label>
+          <label htmlFor={this.numberInputId}>Number</label>
           <input
-            id={this.telInputId}
+            id={this.numberInputId}
             type="tel"
-            name="tel"
-            value={this.state.tel}
+            name="number"
+            value={this.state.number}
             onChange={this.handleInputChange}
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"

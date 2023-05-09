@@ -1,4 +1,5 @@
 import React, { Component} from 'react';
+import { nanoid } from 'nanoid';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 
@@ -15,8 +16,16 @@ export class App extends Component {
   }
 
   formSubmitHandler = data => {
-    this.contacts.push(data);
+    const contact = {
+      id: nanoid(),
+      name: data.name,
+      number: data.number
+    }
+    this.setState(prevState => ({
+      contacts: [contact, ...prevState.contacts]
+    }))
   }
+
   deleteContact = (contactId) => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== contactId)
