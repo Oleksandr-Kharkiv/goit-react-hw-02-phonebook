@@ -16,7 +16,7 @@ export class App extends Component {
   };
   formSubmitHandler = data => {
     const inContacts = this.state.contacts.find(
-      contact => contact.name === data.name
+      contact => contact.name.toLowerCase() === data.name.toLowerCase()
     );
     let message = `${data.name} is already in contacts`;
     if (inContacts) {
